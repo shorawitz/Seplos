@@ -75,6 +75,9 @@ def query_seplos(device, baud):
       time.sleep(0.5)
 
       len_return_data = ser.inWaiting()
+      if len_return_data == 0:
+        continue
+      
       return_data = ser.read(len_return_data)
       str_return_data = str(return_data.hex())
       str_bytes = bytes(str_return_data, encoding='utf-8')
