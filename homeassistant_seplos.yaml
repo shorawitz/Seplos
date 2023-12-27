@@ -1,0 +1,158 @@
+  - platform: rest
+    name: battery_monitor
+    resource: http://raspberrypi.connect4less.home:81/batteries
+    ##device_class: battery
+    scan_interval:
+      seconds: 12
+    json_attributes:
+      - data
+    value_template: "OK"
+    verify_ssl: false
+  - platform: template
+    sensors:
+      pack1_voltage:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_voltage'] }} / {{ state_attr('sensor.battery_monitor', 'data')['pack1']['pack_soc'] }}"
+        friendly_name: Seplos Pack1 ({{(state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_voltage'] - state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_voltage']) | round(3)}})
+        ##device_class: battery
+        #unit_of_measurement: "V"
+      pack1_current:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_current']}}"
+        ##device_class: battery
+        unit_of_measurement: "A"
+      pack1_bus_voltage:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_bus_voltage']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_ah:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_ah_available']}}"
+        ##device_class: battery
+        unit_of_measurement: "Ah"
+      pack1_soc:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_soc']}}"
+        ##device_class: battery
+        unit_of_measurement: "%"
+      pack1_soh:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pack_soh']}}"
+        ##device_class: battery
+        unit_of_measurement: "%"
+      pack1_temp1:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['temp1']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_temp2:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['temp2']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_temp3:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['temp3']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_temp4:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['temp4']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_env_temp:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['env_temp']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_pcb_temp:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['pcb_temp']}}"
+        ##device_class: temperature
+        unit_of_measurement: "C"
+      pack1_cell1:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell1']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell2:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell2']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell3:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell3']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell4:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell4']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell5:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell5']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell6:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell6']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell7:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell7']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell8:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell8']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell9:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell9']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell10:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell10']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell11:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell11']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell12:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell12']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell13:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell13']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell14:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell14']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell15:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell15']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_cell16:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['cell16']}}"
+        ##device_class: battery
+        unit_of_measurement: "V"
+      pack1_low_cell_id:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_id']}}"
+        ##device_class: battery
+      pack1_low_cell_voltage:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_voltage']}}"
+        ##device_class: battery
+        icon_template: >
+          {% if state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_voltage'] < 3 %}
+            mdi:battery-alert-variant-outline
+          {% else %}
+            mdi:battery-charging-outline
+          {% endif %}
+      pack1_high_cell_id:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_id']}}"
+        ##device_class: battery
+      pack1_high_cell_voltage:
+        value_template: "{{state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_voltage']}}"
+        ##device_class: battery
+        icon_template: >
+          {% if state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_voltage'] > 3.5 %}
+            mdi:battery-alert-variant
+          {% else %}
+            mdi:battery-charging-100
+          {% endif %}
+      pack1_cell_delta:
+        value_template: "{{(state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_voltage'] - state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_voltage']) | round(3)}}"
+        icon_template: >
+          {% if (state_attr('sensor.battery_monitor', 'data')['pack1']['high_cell_voltage'] - state_attr('sensor.battery_monitor', 'data')['pack1']['low_cell_voltage']) > 0.05 %}
+            mdi:battery-charging-wireless-alert
+          {% else %}
+            mdi:battery-90
+          {% endif %}
+         
