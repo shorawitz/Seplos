@@ -1,6 +1,6 @@
   - platform: rest
     name: battery_monitor
-    resource: http://raspberrypi.connect4less.home:81/batteries
+    resource: http://edit for your IP address:81/batteries
     ##device_class: battery
     scan_interval:
       seconds: 12
