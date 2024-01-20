@@ -13,3 +13,9 @@ I've included an example config for Home Asssistant: https://www.home-assistant.
   - A:   2 OR 7 (orange OR white brown)
   - GND: 3 OR 6 (white green OR green)
   - B:   1 OR 8 (white orange OR brown)
+
+The _Seplos 2xxAh Parameter_ XML files, are examples of my Seplos BMS configuration for each cell size.
+
+**query_seplos.py** is a test script to test communication between host and Seplos BMS.
+
+In both Python files, the _rs485_device_ and _baud_rate_ variables need to match you hardware setup.
